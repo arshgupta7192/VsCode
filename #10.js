@@ -5,7 +5,7 @@
 //     console.log(i);
 //     i++;
 // }
-n = 10
+n = 12
 i = 0
 
 do 
