@@ -1,0 +1,9 @@
+// let a;
+// function getRandom(num) {
+//     let a= Math.floor(Math.random * num);
+//     return a;
+// };
+// console.log(a)
+
+
+Math.floor(Math.random() * num)
