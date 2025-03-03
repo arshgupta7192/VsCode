@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nJobs by HiringHello</title>
+    <link rel="stylesheet" href="nJobs.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (max-width = 802px)"
+      href="phone.css"
+    />
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <header>
+          <img
+            src="https://njobs.hiringhello.com/images/njobs_hiringhello_logo.png"
+            alt=""
+          />
+          <h2>
+            Quick Job Post:
+            <span class="diffColor">Simplifying Hiring, Together!</span>
+          </h2>
+          <hr />
+        </header>
+
+        <form action="" name="myForm" onsubmit="return validateform()" method="post">
+         
+ <!---------------------------------JOB DOMAIN------------------------------------------->
+
+        <div class="input-box0">
+          <div class="input-box">
+            <label for="job-domain">Job-Domain*</label>
+            <div>
+              <!-- <select name="" id="job-domain">
+                <span class="select"
+                  ><option value="" disable selected hidden>
+                    -Select Job-Domain-
+                  </option></span
+                >
+                <option value="Finance & Accounting">
+                  Finance & Accounting
+                </option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="IT & Tech">IT & Tech</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="Sales & Retails">Sales & Retails</option>
+              </select> -->
+              <select name="fjobdomain" id="jobdomain">
+                <option value="" hidden>-Select Job-Domain-</option>
+              </select>
+            </div>
+            <div class="errorjobdomain" id="errorjobdomain" style="color: red; font-size: 15px;" ></div>
+          </div>
+          
+ <!---------------------------------JOB TECH------------------------------------------->
+
+          <div class="input-box">
+            <label for="job-Tech">Job-Tech*</label>
+            <div>
+              <select name="" id="jobtech">
+                <option value="" hidden>
+                  -Select Job-Tech-
+                </option>
+              </select>
+            </div>
+            <div class="techerror" id="techerror" id="cityerror" style="color: red; font-size: 15px; font-weight: 500;"></div>
+          </div>
+
+ <!---------------------------------EXPERIENCE------------------------------------------->
+
+          <div class="input-box" id="exp">
+            <label for="job-Experience">Experience*</label>
+            <input
+              name="fexp"
+              type="number"
+              class="form-control1"
+              placeholder="Years of Experience"
+            />
+            <div class="formerror"></div>
+          </div>
+        </div>
+
+ <!---------------------------------COUNTRY------------------------------------------->
+
+      <div class="input-box0">
+          <div class="input-box">
+            <label for="Country">Country*</label>
+            <div>
+              <select name="" id="country" onchange="loadStates()">
+                <option value="" hidden>-Please Select-</option>
+              </select>
+            </div>
+            <div id="countryerror" style="color: red; font-size: 15px; font-weight: 500;"></div>
+          </div>
+
+ <!--------------------------------STATE------------------------------------------->
+
+          <div class="input-box">
+            <label for="State">State*</label>
+            <div>
+              <select name="fstate" id="state" onchange="loadCities()">
+                <option value="" hidden> -Please Select- </option>
+              </select>
+            </div>
+            <div class="stateerror" id="stateerror" style="color: red; font-size: 15px; font-weight: 500;" ></div>
+          </div>
+
+ <!--------------------------------CITY------------------------------------------->
+
+        <div class="input-box">
+            <label for="city">City*</label>
+            <div>
+                <select name="fcity" id="city">
+                    <option value="" hidden> -Please Select- </option>
+                </select>
+            </div>
+            <div id="cityerror" style="color: red; font-size: 15px; font-weight: 500;"></div>
+        </div>
+      </div>  
+
+<!--------------------------------DESCRIPTION------------------------------------------->
+
+          <div class="input-box" id="description">
+            <label for="Description">Description*</label>
+            <textarea
+            name="fdescription"
+            class="DescriptionBox"
+            rows="3"
+            placeholder="Enter Job-Description"
+            style="width: 745px"
+            ></textarea>
+            <div class="formerror"></div>
+            <small class="text-muted">Please Provide a Job Description</small>
+          </div>
+          
+          <br />
+          
+ <!--------------------------------COMPANY EMAIL------------------------------------------->
+
+          <div class="input-box1" id="companyEmail">
+            <label for="Company Email">Company Email*</label>
+            <input
+              type="email"
+              name="fcompanyEmail"  
+              class="form-control"
+              placeholder="Enter Email-Address"
+              />
+            <div class="formerror"></div>
+            <small class="text-muted">Please use official email</small>
+          </div>
+
+ <!--------------------------------COMPANY NAME------------------------------------------->
+
+          <div class="input-box1" id="CompanyName">
+            <label for="Company Name" >Company Name*</label>
+            <input
+              type="text"
+              name="fCompanyName"
+              class="form-control"
+              placeholder="Enter Company Name"
+            />
+            <div class="formerror"></div>
+          </div>
+
+ <!--------------------------------ARE YOU A------------------------------------------->
+
+          <div class="input-box11">
+            <label for="Are you a">Are you a*</label>
+            <div class="form-check-inline">
+              <input type="radio" class="form-check-input" name="person_role" />
+              <label for="hrRole" class="form-check-label">HR</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" class="form-check-input" name="person_role" />
+              <label for="Contributer" class="form-check-label"
+                >Contributer</label
+              >
+            </div>
+            <div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Your Name"
+              />
+            </div>
+          </div>
+
+ <!--------------------------------LINKED IN ID------------------------------------------->
+
+          <div class="input-box1">
+            <label for="LinkedIn">LinkedIn*</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter LinkedIn Profile"
+              required
+            />
+            <small class="text-muted">Grow your network with us</small>
+          </div>
+
+ <!--------------------------------OPTIONAL FIELDS------------------------------------------->
+          
+          <div id="optionalFields" class="collapse">
+            <h4 class="option">Optional Details</h4>
+            <div class="row">
+              <div class="Footer">
+                <label for="salaryMin" class="form-label"
+                  >Salary Range (In LPA)</label
+                >
+                <div class="d-flex">
+                  <input
+                    type="text"
+                    class="form-control2"
+                    placeholder="Min Salary"
+                  />
+
+                  <input
+                    type="text"
+                    class="form-control2"
+                    placeholder="Max Salary"
+                  />
+                </div>
+              </div>
+
+              <div class="Footer">
+                <label for="companyWebsite" class="form-label"
+                  >Company Website</label
+                >
+
+                <input
+                  type="url"
+                  class="form-control3"
+                  placeholder="Enter Website URL"
+                />
+              </div>
+            </div>
+          </div>
+
+<!---------------------------Action Button-------------------------------------------------->
+
+<!------------------Add Optional Details---------------------------->
+          <div class="button">
+            <button
+              type="button"
+              class="btn"
+              data-bs-toggle="collapse"
+              data-bs-target="#optionalFields"
+              aria-expanded="false"
+            >
+              Add Optional Details
+            </button>
+          </div>
+
+<!------------------POST JOB---------------------------->
+          <div class="button1">
+            <button class="btn2" onclick="validateform()" type="button">Post Job</button>
+             <!-- <input class="btn2" type="submit" value="submit"> -->
+          </div>
+        </form>
+      </div>
+
+<!---------------------------Extra Actions-------------------------------------------------->
+
+      <div id="extraActions">
+        <button id="jobSeekerButton" class="btnE">Job Seeker?</button>
+
+        <a href="" id="wattsappchannel" class="btnE" target="_blank"
+          >Join Our Channel</a
+        >
+
+        <div id="enquiryDiv" style="text-align: center">
+          <p class="textcenter" style="font-size: 15px">
+            For Any
+            <br />
+            Enquiry
+          </p>
+        </div>
+
+        <a
+          href="https://wa.me/916378071113"
+          target="_blank"
+          class="d-flex align-items-center justify-content-center p-3 bg-primary text-white rounded-circle shadow-lg"
+          style="
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+          "
+        >
+        </a>
+      </div>
+      
+    </section>
+
+  </body>
+  
+  <!-- <script src="nJobs.js"></script> -->
+  
+  <script>
+
+    let selectedtech = ""
+    let selecteddomain = "";
+    let selectedCountry = "";
+    let selectedState = "";
+    let selectedcity = "";
+    
+    // let selectstate = "";
+    // let selectedValue = "";
+    // let selectedVal = "";
+    // let selectedV = "";
+    // let selectedE = "";
+    
+    function seterror(id, error){
+        element = document.getElementById(id);
+        element.getElementsByClassName('formerror')[0].innerHTML = error;    
+    }
+    
+// <!-------------------------------VALIDATIONS------------------------------------------------>
+
+    function validateform(){
+        var returnval = true;
+
+        if(selectedCountry === ""){
+            document.getElementById("countryerror").innerHTML = "Please select the Country"
+        }
+
+        if(selectedcity === ""){
+          document.getElementById("cityerror").innerHTML = "Please select the city"
+        }
+        
+        if(selectedState === ""){
+            document.getElementById("stateerror").innerHTML = "Please select the State"
+        }
+        
+        if(selectedtech === ""){
+            document.getElementById("techerror").innerHTML = "Please select the Job-Tech"
+        }
+        
+        if(selecteddomain === ""){
+            document.getElementById("errorjobdomain").innerHTML = "Please select the Domain"
+        }
+
+        var exp = document.forms['myForm']["fexp"].value;
+        if(exp.length==0){
+            seterror("exp", "*Please Provide the Experience")
+            returnval = false;
+        }
+
+         var description = document.forms['myForm'] ['fdescription'].value;
+        if(description.length==0){
+            seterror("description", "*Please enter the Description");
+            returnval = false;
+        }
+        if(description.length >= 1 && description.length < 20){
+            seterror("description", "*Description could not be less than 20 Letters")
+        }
+       
+        var CompanyName = document.forms['myForm'] ["fCompanyName"].value;
+        if(CompanyName.length==0){
+            seterror("CompanyName", "*Please enter the Company Name");
+            returnval = false
+        }
+
+        var companyEmail = document.forms['myForm']["fcompanyEmail"].value;
+        if(companyEmail.length == 0){
+            seterror("companyEmail", "*PLease enter the Company Email")
+            returnval = false;
+        }
+        return returnval;
+    }
+
+// ---------------------------------JOB DOMAIN and JOB TECH--------------------------------------------------------------------------------------
+
+//     const jobdomain = [
+//     "Finance & Accounting",
+//     "Healthcare",
+//     "IT & Tech",
+//     "Real Estate",
+//     "Sales & Retails"
+// ];
+// // console.log("array", jobdomain);
+//     const selectElement = document.getElementById('jobdomain');
+
+// // Iterate over the array and create an <option> for each job domain
+//     jobdomain.forEach(function(domain) {
+//     const option = document.createElement('option');
+//     option.value = domain;
+//     option.textContent = domain;
+//     selectElement.appendChild(option);
+//     // console.log(domain);
+// })
+// // console.log("value", selectElement.value);
+//     selectElement.addEventListener('change', function() {                   // Add an event listener to log the selected value when changed
+//     selectedValue = selectElement.value;                                // Get the selected value
+//     console.log("Selected jobdomain :" , selectedValue);                 // Log it to the console
+// });
+
+
+
+// // ---JOb Tech---
+// let jobtech = [
+//         "Android" ,
+//         "Medical",
+//         "Science"
+//     ]
+
+//     let selel = document.getElementById('jobtech')
+
+//     jobtech.forEach(function(tech){
+//         let option = document.createElement('option');
+//         option.value = tech;
+//         option.textContent = tech;
+//         selel.appendChild(option);
+//     })
+
+//     selel.addEventListener('change', function(){
+//         selectedV = selel.value;
+//         console.log("Selected Tech:", selectedV);
+//     })
+
+  let domainselect = document.getElementById('jobdomain');
+  let techselect = document.getElementById('jobtech');
+  
+
+let technology = [
+    {
+      jobdomain: "Finance & Accounting",
+      jobtech: ["Acc. Execcutive", "Banking Analyst"]
+    },
+    {
+      jobdomain: "Healthcare",
+      jobtech: [""]
+    },
+    {
+      jobdomain: "IT & Tech",
+      jobtech: ["Android Deve.", "Angular JS", "Azure"]
+    },
+    {
+      jobdomain: "Real Estate",
+      jobtech: ["Sales Manager"]
+    },
+    {
+      jobdomain: "Sales & Retails",
+      jobtech: ["Customer Support", "Management HR"]
+    },
+
+  ]
+    technology.forEach(data => {
+      const option = document.createElement('option')
+      option.value = data.jobdomain;
+      option.textContent = data.jobdomain;
+      domainselect.appendChild(option);
+      // console.log("Selected domain",option);
+    })
+
+    domainselect.addEventListener("change", function() {
+      selecteddomain = domainselect.value;
+      // console.log("Selected",selecteddomain);
+      // techselect.innerHTML = "<option> Select Jobdomain </option>"
+      const domainDataArray = technology.find( data => data.jobdomain === selecteddomain)
+
+      if(domainDataArray){
+        domainDataArray.jobtech.forEach( techno=> {
+          const option = document.createElement('option')
+          option.value = techno;
+          option.textContent = techno;
+          techselect.appendChild(option);
+        })
+      }
+    })
+    techselect.addEventListener('change', function(){
+      selectedtech = techselect.value;
+      console.log("Jobtech",selectedtech);
+    })
+
+
+
+    //---------------------------COUNTRY STATE and CITY----------------------------------------------------------------------------------
+//     let country = [
+//         "India", 
+//         "USA",
+//         "Canada"
+//     ]
+
+//     let selE = document.getElementById('country');
+
+//     country.forEach(function(count){
+//         let option = document.createElement('option');
+//         option.value = count
+//         option.textContent = count;
+//         selE.appendChild(option);
+//     })
+//     selE.addEventListener('change', function(){
+//         selectedE = selE.value;
+//         console.log("Selected Country: " ,selectedE);
+//     })
+      
+// // ---STATE---
+
+//     let state = [
+//         "Andaman Nicobar Islands",
+//         "Andhra Pradesh",
+//         "Bihar",
+//         "Chhattisgarh",
+//         "Dadra Nagar Haveli",
+//         "Delhi",
+//         "Rajasthan",
+//         "Goa",
+//         "Uttarakhand"
+//     ]
+    
+//     const selectelement = document.getElementById('state');
+    
+//     state.forEach(function(State) {
+//     const option = document.createElement('option');
+//     option.value = State;
+//     option.textContent = State;
+//     selectelement.appendChild(option);
+// })
+// // let selectedvalue = "";
+// // console.log("value", selectElement.value);
+// selectelement.addEventListener('change', function() {                   // Add an event listener to log the selected value when changed
+//     selectstate = selectelement.value;                                // Get the selected value
+//     console.log("Selected State :" , selectstate);                 // Log it to the console
+// });
+
+// // ---CITY---
+
+// let city = [
+//         "Ajmer",
+//         "Jaipur",
+//         "Jodhpur",
+//         "Agra",
+//         "Hyderabad"
+//     ]
+
+//     let selElement = document.getElementById('city');
+
+//     city.forEach(function(city) {
+//         let option = document.createElement('option');
+//         option.value = city;
+//         option.textContent = city;
+//         selElement.appendChild(option);
+//     })
+    
+//         selElement.addEventListener('change', function(){
+//         selectedVal = selElement.value;
+//         console.log("Selected City:", selectedVal);
+//     });
+
+    
+// const countrySelect = document.getElementById('country');
+// const stateSelect = document.getElementById('state');
+// const citySelect = document.getElementById('city');
+
+// // Define the data structure with countries, states, and cities
+// const countries = {
+//   "India": [
+//     {
+//       state: "Rajasthan",
+//       city: ["Ajmer", "Alwar", "Jaipur"]
+//     },
+//     {
+//       state: "UP",
+//       city: ["Agra", "Kanpur", "Lucknow"]
+//     },
+//     {
+//       state: "Delhi",
+//       city: ["Murthal", "Sarojini"]
+//     }
+//   ],
+
+//   "USA": [
+//     {
+//       state: "New York",
+//       city: ["New York City", "Buffalo", "Rochester"]
+//     },
+//     {
+//       state: "Chicago",
+//       city: ["Chicago City"]
+//     },
+//     {
+//       state: "Los Angeles",
+//       city: ["Los Angeles City"]
+//     }
+//   ]
+// };
+
+// // Populate the country dropdown
+// Object.keys(countries).forEach(country => {
+//   const option = document.createElement("option");
+//   option.value = country;
+//   option.textContent = country;
+//   countrySelect.appendChild(option);
+// });
+
+// // Event listener for country selection
+// countrySelect.addEventListener("change", function () {
+//   selectedCountry = countrySelect.value;
+//   console.log("Country",selectedCountry);                 
+// //   likha mene
+  
+//   // Clear previous state and city options
+  
+//   stateSelect.innerHTML = "<option>Select State</option>";
+//   citySelect.innerHTML = "<option>Select City</option>";
+  
+//   // Disable state and city selects until a country is chosen
+// //   stateSelect.disabled = !selectedCountry;
+// //   citySelect.disabled = true;
+
+//   if (selectedCountry) {
+//     // Populate the state dropdown based on the selected country
+//     const states = countries[selectedCountry];
+//     states.forEach(state => {
+//       const option = document.createElement("option");
+//       option.value = state.state;
+//       option.textContent = state.state;
+//       stateSelect.appendChild(option);
+//     });
+//   }
+// });
+
+// stateSelect.addEventListener("change", function () {
+//   selectedState = stateSelect.value;
+//   console.log("State",selectedState);
+
+//   citySelect.innerHTML = "<option value=''>Select City</option>";
+
+// //   citySelect.disabled = !selectedState;
+
+//   if (selectedState) {
+//     const states = countries[selectedCountry];    /*agar apn iski scope global kre?*/
+//     const stateData = states.find(state => state.state === selectedState);
+
+//     if (stateData) {
+//       stateData.city.forEach(city => {
+//         const option = document.createElement("option");
+//         option.value = city;
+//         option.textContent = city;
+//         citySelect.appendChild(option);
+//       });
+//     }
+//   }
+// });
+
+// citySelect.addEventListener('change', function(){
+//     selectedcity = citySelect.value;
+//     console.log("City",selectedcity);
+// })
+
+
+let config = {
+    cUrl: 'https://api.countrystatecity.in/v1/countries',
+    ckey: 'NHhvOEcyWk50N2Vna3VFTE00bFp3MjFKR0ZEOUhkZlg4RTk1MlJlaA=='
+}
+
+
+var countrySelect = document.querySelector('#country'),
+    stateSelect = document.querySelector('#state'),
+    citySelect = document.querySelector('#city')
+
+
+function loadCountries() {
+
+    let apiEndPoint = config.cUrl
+
+    fetch(apiEndPoint, {headers: {"X-CSCAPI-KEY": config.ckey}})
+    .then(Response => Response.json())
+    .then(data => {
+
+        data.forEach(country => {
+            const option = document.createElement('option')
+            option.value = country.iso2
+            option.textContent = country.name 
+            countrySelect.appendChild(option)
+        })
+    })
+    .catch(error => console.error('Error loading countries:', error))
+    
+    countrySelect.addEventListener("change", function () {
+    selectedCountry = countrySelect.value;
+    console.log("Country",selectedCountry);
+})
+    stateSelect.disabled = true
+    citySelect.disabled = true
+    // stateSelect.style.pointerEvents = 'none'
+    // citySelect.style.pointerEvents = 'none'
+}
+
+
+function loadStates() {
+    stateSelect.disabled = false
+    citySelect.disabled = true
+    // stateSelect.style.pointerEvents = 'auto'
+    // citySelect.style.pointerEvents = 'none'
+
+    let selectedCountryCode = countrySelect.value
+    // console.log(`Country Code:${selectedCountryCode}`);
+    stateSelect.innerHTML = '<option value="">Select State</option>' // for clearing the existing states
+    citySelect.innerHTML = '<option value="">Select City</option>' // Clear existing city options
+
+    fetch(`${config.cUrl}/${selectedCountryCode}/states`, {headers: {"X-CSCAPI-KEY": config.ckey}})
+    .then(response => response.json())
+    .then(data => {
+        // console.log(data);
+
+        data.forEach(state => {
+            const option = document.createElement('option')
+            option.value = state.iso2
+            option.textContent = state.name 
+            stateSelect.appendChild(option)
+        })
+    })
+    .catch(error => console.error('Error loading countries:', error))
+
+    stateSelect.addEventListener("change", function () {
+    selectedState = stateSelect.value;
+    console.log("State",selectedState);
+})
+}
+
+
+function loadCities() {
+    citySelect.disabled = false
+    // citySelect.style.pointerEvents = 'auto'
+
+    const selectedCountryCode = countrySelect.value
+    const selectedStateCode = stateSelect.value
+    // console.log(selectedCountryCode, selectedStateCode);
+
+    citySelect.innerHTML = '<option value="">Select City</option>' // Clear existing city options
+
+    fetch(`${config.cUrl}/${selectedCountryCode}/states/${selectedStateCode}/cities`, {headers: {"X-CSCAPI-KEY": config.ckey}})
+    .then(response => response.json())
+    .then(data => {
+
+        data.forEach(city => {
+            const option = document.createElement('option')
+            option.value = city.iso2
+            option.textContent = city.name 
+            citySelect.appendChild(option)
+        })
+    })
+
+    citySelect.addEventListener('change', function(){
+    selectedcity = citySelect.value;
+    console.log("City",selectedcity);
+})
+}
+
+window.onload = loadCountries
+
+
+   </script>
+  
+</html>
